@@ -24,7 +24,6 @@ curl http://localhost:8998/health
 - **Letta Code CLI** installed globally
 - **VS Code devcontainer** with extensions pre-configured
 - **Non-root user** (devuser:1001) for security
-- **Coding skills** for Letta Code agents (git, testing, debugging, docs, code quality)
 
 ## Environment Variables
 
@@ -50,22 +49,17 @@ docker-compose down
 - `8999` - Web preview
 - `9000-9010` - On-demand microservices
 
-## Coding Skills
+## Recommended Skills
 
-Pre-installed skills for Letta Code agents in `skills/`:
+Install these skills from skills.sh marketplace for a coding agent:
 
-- **git-operations** - Git workflow automation
-- **code-quality** - Linting, formatting, static analysis
-- **testing** - Test execution and coverage
-- **documentation** - API docs and code comments
-- **debugging** - Debugging workflow and troubleshooting
-
-Load skills:
-```
-/load-skills skills/
+**Code Review:**
+```bash
+npx skills add https://github.com/obra/superpowers --skill requesting-code-review
+npx skills add https://github.com/obra/superpowers --skill receiving-code-review
 ```
 
-See `skills/README.md` for details.
+For more skills, visit: https://skills.sh
 
 ## VS Code Devcontainer
 
