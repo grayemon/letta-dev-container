@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+
+# Secrets
+.env
+.env.*
+!env.example
+
+# Letta Code
+.letta/
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+
+# Node
+node_modules
+npm-debug.log*
+
+# Editor
+.vscode
+.idea
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.tmp
+*.bak
+*.log

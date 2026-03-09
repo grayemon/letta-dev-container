@@ -1,0 +1,21 @@
+services:
+  dev-container:
+    build: .
+    container_name: dev-env
+    ports:
+      - "8283:8283" # For self-hosted Letta instances (optional)
+      - "8999:8999" # Main port for web preview
+      - "9000-9010:9000-9010" # On-demand ports for microservices
+    volumes:
+      - .:/workspace
+    env_file:
+      - .env # Loads LETTA_API_KEY and LETTA_BASE_URL automatically
+    environment:
+      - NODE_ENV=development # Not in .env, so defined explicitly here
+    # Healthcheck: confirms the container is running
+    healthcheck:
+      test: ["CMD", "pgrep", "-x", "tail"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
