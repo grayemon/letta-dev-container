@@ -12,7 +12,7 @@ LABEL security.scan.enabled="true" \
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Node.js, curl, and essential build tools
-# Note: Pinned to 20.10.x to prevent breaking changes from latest auto-update
+# Note: Using Node.js 20.x LTS for stability
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && apt-get install -y --no-install-recommends \
@@ -20,8 +20,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     git \
     build-essential \
     ca-certificates \
-    && curl -fsSL https://deb.nodesource.com/setup_20.10.x | bash - \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh \
+    && bash nodesource_setup.sh \
     && apt-get install -y nodejs \
+    && rm -f nodesource_setup.sh \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install global npm packages
