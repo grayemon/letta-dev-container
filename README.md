@@ -49,31 +49,71 @@ docker-compose down
 - `8999` - Web preview
 - `9000-9010` - On-demand microservices
 
-## Recommended Skills
+## Available Skills
 
 ### Code Review Skills (obra/superpowers)
-```bash
-npx skills add https://github.com/obra/superpowers --skill requesting-code-review
-npx skills add https://github.com/obra/superpowers --skill receiving-code-review
-```
+- **requesting-code-review** - Dispatch code-reviewer subagent to catch issues before they cascade. Use when completing tasks, implementing major features, or before merging to verify work meets requirements.
+- **receiving-code-review** - Handle code review feedback with technical rigor and verification. Use when receiving feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable.
 
 ### Docker Skills (pluginagentmarketplace/custom-plugin-docker)
+Complete Docker coverage for containerized applications:
+
+- **dockerfile-basics** - Learn Dockerfile fundamentals and best practices
+- **docker-multi-stage** - Multi-stage builds for optimized, minimal production images
+- **docker-optimization** - Optimize Docker images and containers for size, build speed, and runtime performance
+- **docker-compose-setup** - Set up multi-container applications with Docker Compose
+- **docker-networking** - Configure Docker networking for containers including bridge, overlay, and service discovery
+- **docker-volumes** - Implement persistent storage with Docker volumes, bind mounts, and backup strategies
+- **docker-registry** - Private registry setup, image management, and multi-registry operations
+- **docker-debugging** - Container debugging and troubleshooting techniques for production issues
+- **docker-production** - Deploy Docker containers to production with monitoring, logging, and health checks
+- **docker-ci-cd** - Docker integration with CI/CD pipelines for automated builds, testing, and deployments
+- **docker-security** - Secure Docker containers and images with hardening, scanning, and secrets management
+- **docker-swarm** - Docker Swarm orchestration, cluster management, and production deployments
+
+### Letta Development Skills (letta-ai/skills)
+- **agent-development** - Comprehensive guide for developing Letta agents, including architecture selection, memory design, model selection, and tool configuration
+- **letta-api-client** - Build applications with the Letta API for persistent agents with memory and long-term learning. Covers SDK patterns for Python and TypeScript with 24 working code examples
+
+### Additional Skills
+- **acquiring-skills** - Guide for safely discovering and installing skills from external repositories
+- **converting-mcps-to-skills** - Connect to MCP servers and create skills for repeated use
+- **creating-skills** - Guide for creating effective skills
+- **finding-agents** - Find other agents on the server
+- **initializing-memory** - Comprehensive guide for initializing or reorganizing agent memory
+- **messaging-agents** - Send messages to other agents
+- **migrating-from-codex-and-claude-code** - Find and search historical conversation data
+- **migrating-memory** - Migrate memory blocks between agents
+- **searching-messages** - Search past messages to recall context
+- **syncing-memory-filesystem** - Manage git-backed memory repos
+- **working-in-parallel** - Guide for working in parallel with other agents
+
+## Installation
+
+### Install All Skills at Once
 ```bash
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-ci-cd
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-compose-setup
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-debugging
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-multi-stage
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-networking
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-optimization
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-production
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-registry
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-security
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-swarm
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-volumes
-npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill dockerfile-basics
+# Code review skills
+npx skills add obra/superpowers
+
+# Docker skills
+npx skills add pluginagentmarketplace/custom-plugin-docker
+
+# Letta development skills
+npx skills add letta-ai/agent-development
+npx skills add letta-ai/letta-api-client
+
+# Acquiring skills (discover more)
+npx skills add letta-ai/skills
 ```
 
-For more skills, visit: https://skills.sh
+### Install Individual Skills
+```bash
+# Specify individual skill from a repository
+npx skills add <owner/repo> --skill <skill-name>
+
+# Example:
+npx skills add obra/superpowers --skill requesting-code-review
+```
 
 ## VS Code Devcontainer
 
