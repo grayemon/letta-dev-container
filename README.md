@@ -51,12 +51,26 @@ docker-compose down
 
 ## Recommended Skills
 
-Install these skills from skills.sh marketplace for a coding agent:
-
-**Code Review:**
+### Code Review Skills (obra/superpowers)
 ```bash
 npx skills add https://github.com/obra/superpowers --skill requesting-code-review
 npx skills add https://github.com/obra/superpowers --skill receiving-code-review
+```
+
+### Docker Skills (pluginagentmarketplace/custom-plugin-docker)
+```bash
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-ci-cd
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-compose-setup
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-debugging
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-multi-stage
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-networking
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-optimization
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-production
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-registry
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-security
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-swarm
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill docker-volumes
+npx skills add https://github.com/pluginagentmarketplace/custom-plugin-docker --skill dockerfile-basics
 ```
 
 For more skills, visit: https://skills.sh
