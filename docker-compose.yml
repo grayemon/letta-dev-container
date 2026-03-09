@@ -5,17 +5,35 @@ services:
     ports:
       - "8283:8283" # For self-hosted Letta instances (optional)
       - "8999:8999" # Main port for web preview
-      - "9000-9010:9000-9010" # On-demand ports for microservices
+      - "19000-19010:9000-9010" # On-demand ports for microservices (maps host 19000-19010 to container 9000-9010)
     volumes:
       - .:/workspace
     env_file:
       - .env # Loads LETTA_API_KEY and LETTA_BASE_URL automatically
     environment:
       - NODE_ENV=development # Not in .env, so defined explicitly here
-    # Healthcheck: confirms the container is running
+    # Healthcheck: aligns with Dockerfile - checks FastAPI health endpoint
     healthcheck:
-      test: ["CMD", "pgrep", "-x", "tail"]
+      test: ["CMD", "curl", "-f", "http://localhost:8998/health"]
       interval: 30s
       timeout: 5s
       retries: 3
+      start_period: 10s
     restart: unless-stopped
+    # Resource limits to prevent container from consuming all host resources
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    # Network isolation for security and resource management
+    # Note: Consider adding cap_drop: [ALL] and cap_add: [NET_BIND_SERVICE] for stricter security
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
